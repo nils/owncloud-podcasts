@@ -19,8 +19,29 @@
 //
 @import "_mixins";
 @import "episodelist";
+@import "gpodder";
 @import "player";
 
 .clearfix {
   clear: both;
+}
+
+#app-settings-content input[type='password'] {
+    width: 93%;
+}
+
+.nav-icon-rss {
+	background-image: url('../img/rss-navigation.svg');
+}
+
+.nav-icon-gpoddersettings {
+	background-image: url('../img/gpodder.net.svg');
+}
+
+.app-content-gpoddersettings {
+
+    top: 44px;
+    position: relative;
+    width: 100%;
+      padding: 20px;
 }

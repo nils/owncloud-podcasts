@@ -1,0 +1,26 @@
+span.success {
+	background: #37ce02;
+	border-radius: 3px;
+}
+span.error {
+	background: #ce3702;
+}
+span.indeterminate {
+	background: #e6db00;
+	border-radius: 40% 0;
+}
+
+.checklist .loading {
+	height: 50px;
+	background-position: left center;
+}
+
+.checklist .errors,
+.checklist .warnings,
+#security-warning > ul {
+	color: #ce3702;
+}
+
+.checklist .success {
+  color: #47a447;
+}

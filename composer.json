@@ -1,5 +1,6 @@
 {
     "require": {
-        "fguillot/picofeed": "@stable"
+        "fguillot/picofeed": "@stable",
+        "nils/libmygpo-php": "@dev"
     }
 }

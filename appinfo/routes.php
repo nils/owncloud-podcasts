@@ -76,5 +76,30 @@ $application->registerRoutes($this, [
             "url"  => "/feeds/{feedId}",
             "verb" => "DELETE",
         ],
+        [
+            "name" => "gpodderapi#get_credentials",
+            "url"  => "/gpodder/credentials",
+            "verb" => "GET",
+        ],
+        [
+            "name" => "gpodderapi#update_credentials",
+            "url"  => "/gpodder/credentials",
+            "verb" => "PUT",
+        ],
+        [
+            "name" => "gpodderapi#remove_credentials",
+            "url"  => "/gpodder/credentials",
+            "verb" => "DELETE",
+        ],
+        [
+            "name" => "GpodderApi#test_credentials",
+            "url"  => "/gpodder/credentials/test",
+            "verb" => "PUT",
+        ],
+        [
+            "name" => "GpodderApi#synchronize",
+            "url"  => "/gpodder/synchronize",
+            "verb" => "PUT",
+        ],
     ],
 ]);

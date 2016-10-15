@@ -84,11 +84,20 @@ class WebViewController extends Controller
      */
     public function index()
     {
-        $response = new TemplateResponse("podcasts", "main", []);
+      $nav = new \OCP\Template('podcasts', 'feeds', '');
+      $params['content'] = $nav;
+
+      $nav = new \OCP\Template('podcasts', 'gpodder', '');
+      $params['gpoddersettings'] = $nav;
+
+        $response = new TemplateResponse("podcasts", "index", $params);
 
         $policy = new ContentSecurityPolicy();
         $policy->addAllowedFrameDomain("'self'");
         $policy->addAllowedImageDomain("*");
+
+
+
 
         $response->setContentSecurityPolicy($policy);
 

@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2fe3c3702ff9a530a77c66f105aba644",
-    "content-hash": "68df026e4e4baf59ff34e4bc09460104",
+    "hash": "47c1bf072fb6ffac97a19a270428e44c",
+    "content-hash": "eb73d352b2d89f59d1ec5eaa40e24998",
     "packages": [
         {
             "name": "fguillot/picofeed",
-            "version": "v0.1.23",
+            "version": "v0.1.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fguillot/picoFeed.git",
-                "reference": "a7c3d420c239fe9ffc39b0d06b6e57db39ce3797"
+                "reference": "2bf5bc40361e788eda6b1bd5d444630986721e69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fguillot/picoFeed/zipball/a7c3d420c239fe9ffc39b0d06b6e57db39ce3797",
-                "reference": "a7c3d420c239fe9ffc39b0d06b6e57db39ce3797",
+                "url": "https://api.github.com/repos/fguillot/picoFeed/zipball/2bf5bc40361e788eda6b1bd5d444630986721e69",
+                "reference": "2bf5bc40361e788eda6b1bd5d444630986721e69",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,86 @@
             ],
             "description": "Modern library to handle RSS/Atom feeds",
             "homepage": "https://github.com/fguillot/picoFeed",
-            "time": "2016-04-17 22:31:55"
+            "time": "2016-08-30 01:33:18"
+        },
+        {
+            "name": "nils/libmygpo-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nils/libmygpo-php.git",
+                "reference": "f80247840a418a775e12fb57891ebd9dddc9eefa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nils/libmygpo-php/zipball/f80247840a418a775e12fb57891ebd9dddc9eefa",
+                "reference": "f80247840a418a775e12fb57891ebd9dddc9eefa",
+                "shasum": ""
+            },
+            "require": {
+                "rmccue/requests": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "mygpo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0"
+            ],
+            "description": "PHP Client Library for gpodder.net",
+            "time": "2016-10-15 16:30:41"
+        },
+        {
+            "name": "rmccue/requests",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rmccue/Requests.git",
+                "reference": "87932f52ffad70504d93f04f15690cf16a089546"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmccue/Requests/zipball/87932f52ffad70504d93f04f15690cf16a089546",
+                "reference": "87932f52ffad70504d93f04f15690cf16a089546",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "requests/test-server": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Requests": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan McCue",
+                    "homepage": "http://ryanmccue.info"
+                }
+            ],
+            "description": "A HTTP library written in PHP, for human beings.",
+            "homepage": "http://github.com/rmccue/Requests",
+            "keywords": [
+                "curl",
+                "fsockopen",
+                "http",
+                "idna",
+                "ipv6",
+                "iri",
+                "sockets"
+            ],
+            "time": "2016-10-13 00:11:37"
         },
         {
             "name": "zendframework/zendxml",
@@ -105,7 +184,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "fguillot/picofeed": 0
+        "fguillot/picofeed": 0,
+        "nils/libmygpo-php": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

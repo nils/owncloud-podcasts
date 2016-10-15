@@ -25,8 +25,12 @@ namespace OCA\Podcasts\AppInfo;
 use OCA\Podcasts\Controller\EpisodesController;
 use OCA\Podcasts\Controller\PodcastController;
 use OCA\Podcasts\Controller\WebViewController;
+use OCA\Podcasts\Controller\GpodderApiController;
+use OCA\Podcasts\Controller\GpodderViewController;
 use OCA\Podcasts\Db\EpisodeMapper;
+use OCA\Podcasts\Db\SyncLogEntryMapper;
 use OCA\Podcasts\Db\FeedMapper;
+use OCA\Podcasts\Db\GpodderMapper;
 use OCA\Podcasts\Feed\FeedUpdater;
 use OCP\AppFramework\App;
 
@@ -53,6 +57,14 @@ class Application extends App
             );
 
             return $episodeMapper;
+        });
+
+        $container->registerService("GpodderMapper", function ($c) {
+            $gpodderMapper = new GpodderMapper(
+                \OC::$server->getDatabaseConnection()
+            );
+
+            return $gpodderMapper;
         });
 
         $container->registerService("FeedMapper", function ($c) {
@@ -85,6 +97,31 @@ class Application extends App
 
         $container->registerService("WebViewController", function ($c) {
             return new WebViewController(
+                $c->query("AppName"),
+                $c->query("Request"),
+                $c->query("UserId"),
+                $c->query("UrlGenerator"),
+                $c->query("EpisodeMapper"),
+                $c->query("FeedMapper")
+            );
+        });
+
+        $container->registerService("GpodderApiController", function ($c) {
+            return new GpodderApiController(
+                $c->query("AppName"),
+                $c->query("Request"),
+                $c->query("UserId"),
+                $c->query('ServerContainer')->getUserSession(),
+                $c->query("GpodderMapper"),
+                $c->query("FeedMapper"),
+                $c->query("FeedUpdater"),
+                $c->query("EpisodeMapper"),
+                $c->query("SyncLogEntryMapper")
+            );
+        });
+
+        $container->registerService("GpodderViewController", function ($c) {
+            return new GpodderViewController(
                 $c->query("AppName"),
                 $c->query("Request"),
                 $c->query("UserId"),

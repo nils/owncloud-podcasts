@@ -27,6 +27,7 @@ use OCA\Podcasts\Db\EpisodeMapper;
 use OCA\Podcasts\Db\Feed;
 use OCA\Podcasts\Db\FeedMapper;
 use PicoFeed\Reader\Reader;
+use PicoFeed\Config\Config;
 
 /**
  * Class FeedUpdater
@@ -75,6 +76,8 @@ class FeedUpdater
             try {
                 $this->processFeed($feed);
             } catch (\Exception $e) {
+              var_dump($e->getMessage());
+              flush();
                 // @todo warn
             }
         }
@@ -92,7 +95,9 @@ class FeedUpdater
         $success = false;
 
         try {
-            $reader = new Reader();
+            $config = new Config();
+            $config->setMaxBodySize(1024*1024*16);// 16MB, default is 2097152 (2MB)
+            $reader = new Reader($config);
             $resource = $reader->download($feed->getUrl());
 
             $parser = $reader->getParser(
@@ -105,6 +110,8 @@ class FeedUpdater
 
             $success = true;
         } catch (\Exception $e) {
+          var_dump($e->getMessage());
+          flush();
             // $success = false set on initialization
         }
 
@@ -121,7 +128,9 @@ class FeedUpdater
      */
     public function processFeed(Feed $feed)
     {
-        $reader = new Reader();
+      $config = new Config();
+      $config->setMaxBodySize(1024*1024*16);// 16MB, default is 2097152 (2MB)
+        $reader = new Reader($config);
         $resource = $reader->download($feed->getUrl());
 
         $parser = $reader->getParser(
@@ -154,6 +163,8 @@ class FeedUpdater
                     $this->episodeMapper->insert($episode);
                 }
             } catch (\Exception $e) {
+                var_dump($e->getMessage());
+                flush();
                 // @todo warn
             }
         }
